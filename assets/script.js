@@ -1,23 +1,80 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
+let yourName = "Brian E. Makori" 
 
-// First, tell us your name
-let yourName = "Jane Doe" // HINT: Replace this with your own name!
-
-// We'll use these variables to track the counts of each cookie type
 let gb = 0      // Ginger bread
 let cc = 0      // Chocolate Chip
 let sugar = 0   // Sugar Sprinkle
+let sum = 0     // Total
 
-// Code to update name display 
 document.getElementById('credit').textContent = `Created by ${yourName}`
 
-// Event listener for clicks on the "+" button for Ginger Bread cookies
 document.getElementById('add-gb').addEventListener('click', function() {
-    // HINT: You can delete this console.log after you no longer need it!
-    console.log('Ginger bread + button was clicked!')
 
-    // TODO: Write the code to be run when the "+" button for "Ginger Bread" is clicked
+    document.getElementById("qty-gb").innerHTML = gb + 1
+    gb++
+    total()
 })
 
-// TODO: Hook up event listeners for the rest of the buttons
+document.getElementById('add-cc').addEventListener('click', function() {
+
+    document.getElementById("qty-cc").innerHTML = cc + 1
+    cc++
+    total()
+    
+})
+
+document.getElementById('add-sugar').addEventListener('click', function() {
+
+    document.getElementById("qty-sugar").innerHTML = sugar + 1
+    sugar++
+    total() 
+})
+
+document.getElementById('minus-gb').addEventListener('click', function() {
+    if (gb > 0){
+        document.getElementById("qty-gb").innerHTML = gb - 1
+        gb--
+        remainder()
+    } else {
+        document.getElementById("qty-gb").innerHTML = 0
+
+    }
+  
+})
+
+document.getElementById('minus-cc').addEventListener('click', function() {
+    if (cc > 0) {
+        document.getElementById("qty-cc").innerHTML = cc - 1
+        cc--
+        remainder()
+    } else {
+        document.getElementById("qty-cc").innerHTML = 0
+    }
+})
+
+document.getElementById('minus-sugar').addEventListener('click', function() {
+    if (sugar > 0){
+        document.getElementById("qty-sugar").innerHTML = sugar - 1
+        sugar--
+        remainder()
+    } else {
+        document.getElementById("qty-sugar").innerHTML = 0
+    }
+})
+
+function total () {
+    document.getElementById("qty-total").innerHTML = sum + 1
+    sum++
+}
+
+function remainder () {
+    
+    if (sum >= 0) {
+        document.getElementById("qty-total").innerHTML = sum - 1
+        sum--
+
+    } else {
+        document.getElementById("qty-total").innerHTML = 0
+    }
+}
+
+    
